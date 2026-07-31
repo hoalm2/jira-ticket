@@ -129,7 +129,7 @@ Mỗi khi Git được cập nhật, chạy lệnh trong IDE để lấy bản m
 cd ~/.claude/skills/jira-ticket-creator
 git pull
 ```
-Không cần cài lại. `git pull` là có epic/cadence/rule mới nhất.
+Không cần cài lại. `git pull` là có bản mới nhất và chạy được skill.
 
 ---
 
