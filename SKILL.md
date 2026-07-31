@@ -23,6 +23,11 @@ Mỗi source cần một parser đổ ra **cùng 1 schema JSON trung gian** (lis
 mọi thứ dùng chung. Thêm loại source mới = viết parser mới đổ đúng schema, phần còn lại
 tái dùng nguyên.
 
+Style format description (Jira wiki markup, bullet, bold Given/When/Then, heading
+*User story*/*Acceptance criteria*) cũng **source-agnostic**: nằm ở
+`jira_config.json > description_format`, áp dụng chung cho mọi parser (PRD, FigJam,
+source tương lai…), không riêng PRD.
+
 **Luôn in bảng schema cho PO hiểu cái gì họ phải cấp / cái gì máy tự lo:**
 ```bash
 python3 scripts/check_schema.py --show-schema
@@ -129,6 +134,21 @@ python3 scripts/check_schema.py <stories.json>
 Convention khi source là PRD: mỗi US là heading `US-xx · <summary>` + Acceptance
 criteria; sub-task tường minh `Sub-task: <tên> - Np`; field mềm `[assignee: x] [point: N]`.
 
+**Convention format description (Jira wiki markup, áp dụng chung mọi source, không
+riêng PRD):**
+- Description tách 2 khối rõ ràng: `*User story*` (đoạn tường thuật) rồi
+  `*Acceptance criteria*` (list). Bold + heading dùng cú pháp Jira wiki markup thật
+  (`*text*`), KHÔNG phải markdown (`**text**`).
+- List dùng bullet `* ` (Jira wiki list thật), không dùng ký tự `•`.
+- Given/When/Then/And được tự động bold + tự chèn dấu chấm giữa các vế nếu PRD viết
+  liền 1 câu không tách câu.
+- AC theo từng use case (PRD nhiều case như FD) giữ **cấu trúc phân cấp**: dòng
+  sub-heading dạng "1. Tên case" in bold đứng riêng, các Given/When/Then thuộc case đó
+  lùi cấp (`** `) bên dưới — không bị làm phẳng thành 1 list.
+- Toàn bộ style này (bullet, từ khoá bold, regex nhận heading case, tên 2 heading) là
+  **knowledge config-driven** trong `jira_config.json > description_format` — sửa ở đó
+  khi cần đổi style, KHÔNG sửa code trong `prd_to_jira.py`.
+
 ## BƯỚC 3 — DRY-RUN (BẮT BUỘC, trước mọi lần tạo)
 
 ```bash
@@ -157,6 +177,8 @@ Script sẽ hỏi gõ `yes` lần nữa. Sau khi tạo:
   gửi bừa (dropdown sai giá trị sẽ bị Jira reject cả ticket).
 - **Description chỉ chứa user story + acceptance criteria.** Bỏ metadata thừa
   (dòng `[US-xx]`, `Edge:`, `UI:`, `Sprint/Epic`) — epic/sprint đã có field riêng.
+  Và trình bày theo Jira wiki markup ở trên (`*User story*` / `*Acceptance
+  criteria*`, bullet `* `, bold Given/When/Then/And) — không phải text thô.
 - **Workstream → tự suy Product Domain + Sub Domain** (như auto-fill web). PO chỉ cần
   cho biết 1 workstream; 2 field kia suy từ `jira_config.json > workstream_mapping`. Cả 3
   là dropdown, gửi `{value:...}`. Workstream lạ (không trong mapping) → cảnh báo + liệt kê

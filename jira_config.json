@@ -31,6 +31,17 @@
     "point_marker": "[point:",
     "us_heading_regex": "US-?\\d+"
   },
+  "description_format": {
+    "_note": "Config-driven: đổi style ở đây, KHÔNG hardcode trong prd_to_jira.py. Áp dụng chung mọi source (source-agnostic), không riêng PRD.",
+    "bullet": "* ",
+    "bold_keywords": ["Given", "When", "Then", "And"],
+    "case_heading_regex": "^\\d+[.)]\\s+\\S",
+    "_case_heading_note": "Dòng AC khớp pattern này (vd '1. Login thành công') coi là sub-heading của 1 use case → in bold, KHÔNG bullet; các dòng Given/When/Then theo sau được lùi cấp (** ) để giữ cấu trúc phân cấp thay vì làm phẳng.",
+    "headers": {
+      "story": "*User story*",
+      "ac": "*Acceptance criteria*"
+    }
+  },
   "sprint_cadence": {
     "_rule": "next sprint = sprint có start_date nhỏ nhất trong các sprint thoả start_date >= today - 2 ngày. Auto-fill, không hỏi PO; PO check ở dry-run.",
     "_grace_days": 2,

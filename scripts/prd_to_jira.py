@@ -130,10 +130,10 @@ def parse_prd(html, cfg):
             if a: cur["assignee"] = a.group(1).strip()
             if pt: cur["points"] = float(pt.group(1))
         elif cur is not None:
-            if txt.lower().startswith(("edge","ui:","component")): 
-                cur["desc_lines"].append(txt)
+            if txt.lower().startswith(("edge","ui:","component")):
+                cur["desc_lines"].append({"tag": tag, "text": txt})
             elif tag == "li":
-                cur["desc_lines"].append("• " + txt)
+                cur["desc_lines"].append({"tag": "li", "text": txt})
                 # sub-task tường minh: "Sub-task: <tên> - Np"
                 sm = re.match(r"sub-?task[:\s]+(.+)", txt, re.I)
                 if sm:
@@ -143,7 +143,7 @@ def parse_prd(html, cfg):
                         "summary": re.sub(r"-\s*\d+(?:\.\d+)?\s*p\b","",body,flags=re.I).strip(" -"),
                         "points": float(pm.group(1)) if pm else None})
             else:
-                cur["desc_lines"].append(txt)
+                cur["desc_lines"].append({"tag": tag, "text": txt})
     if cur: stories.append(cur)
     return stories
 
@@ -151,12 +151,83 @@ def parse_prd(html, cfg):
 def _clean_desc(desc_lines):
     """Chỉ giữ user story + acceptance criteria. Bỏ dòng Edge/UI/Component metadata."""
     out = []
-    for ln in desc_lines:
-        low = ln.lower().lstrip("• ").strip()
+    for entry in desc_lines:
+        low = entry["text"].lower().strip()
         if low.startswith(("edge:", "ui:", "component", "edge ")):
             continue
-        out.append(ln)
+        out.append(entry)
     return out
+
+_SENTENCE_END = (".", "!", "?", ":")
+
+def _format_gwt(text, keywords):
+    """Bold Given/When/Then/And (không phân biệt hoa/thường, ở bất kỳ đâu trong câu)
+    theo cú pháp Jira wiki markup (*bold*); tự chèn dấu chấm giữa các vế nếu PRD
+    viết liền 1 câu không tách dấu kết."""
+    if not keywords or not text.strip():
+        return text
+    kw_re = re.compile(r"\b(" + "|".join(re.escape(k) for k in keywords) + r")\b", re.I)
+    matches = list(kw_re.finditer(text))
+    if not matches:
+        result = text.strip()
+        return result + "." if result and not result.endswith(_SENTENCE_END) else result
+
+    pieces, cursor = [], 0
+    for idx, m in enumerate(matches):
+        before = text[cursor:m.start()]
+        if idx > 0:
+            before = before.strip()
+            if before and not before.endswith(_SENTENCE_END):
+                before += "."
+            before = (" " + before + " ") if before else " "
+        pieces.append(before)
+        pieces.append(f"*{m.group(1).capitalize()}*")
+        cursor = m.end()
+    pieces.append(text[cursor:])
+    result = re.sub(r"\s+", " ", "".join(pieces)).strip()
+    result = re.sub(r"\s+([.,!?:])", r"\1", result)
+    return result + "." if result and not result.endswith(_SENTENCE_END) else result
+
+def _format_ac(ac_lines, fmt):
+    """Format list Acceptance criteria theo description_format (jira_config.json).
+    Dòng khớp case_heading_regex (vd '1. Login thành công') giữ làm sub-heading bold,
+    KHÔNG bullet; các dòng sau nó lùi cấp (** ) để giữ cấu trúc phân cấp theo use case."""
+    bullet = fmt.get("bullet", "* ")
+    bullet_char = bullet.strip() or "*"
+    nested = bullet_char * 2 + " "
+    keywords = fmt.get("bold_keywords", ["Given", "When", "Then", "And"])
+    case_pat = fmt.get("case_heading_regex")
+    case_re = re.compile(case_pat) if case_pat else None
+
+    out, under_case = [], False
+    for txt in ac_lines:
+        if case_re and case_re.match(txt):
+            out.append(f"*{txt}*")
+            under_case = True
+        else:
+            out.append((nested if under_case else bullet) + _format_gwt(txt, keywords))
+    return out
+
+def _format_description(entries, cfg):
+    """Ghép desc_lines (đã lọc meta bởi _clean_desc) thành description Jira wiki markup:
+    tách khối *User story* (đoạn text tường thuật) và *Acceptance criteria* (list, có
+    bold Given/When/Then + giữ cấp bậc case-heading). Style lấy từ
+    jira_config.json > description_format — đổi ở đó, không sửa code."""
+    fmt = cfg.get("description_format", {})
+    headers = fmt.get("headers", {"story": "*User story*", "ac": "*Acceptance criteria*"})
+    story_lines = [e["text"] for e in entries if e["tag"] != "li"]
+    ac_lines = [e["text"] for e in entries if e["tag"] == "li"]
+
+    out = []
+    if story_lines:
+        out.append(headers.get("story", "*User story*"))
+        out.extend(story_lines)
+    if ac_lines:
+        if out:
+            out.append("")
+        out.append(headers.get("ac", "*Acceptance criteria*"))
+        out.extend(_format_ac(ac_lines, fmt))
+    return "\n".join(out)
 
 SPRINT_CODE_RE = re.compile(r"(\d{2}\.\d{2}\.[A-Z])")
 
@@ -244,7 +315,7 @@ def build_payload(story, cfg, sprint_id=None):
         "project": {"key": d["project_key"]},
         "summary": story["summary"],
         "issuetype": {"name": cfg["issue_types"]["story"]},
-        "description": "\n".join(_clean_desc(story["desc_lines"])[:25]),
+        "description": _format_description(_clean_desc(story["desc_lines"])[:25], cfg),
     }
     if fid.get("story_points") and story["points"] is not None:
         fields[fid["story_points"]] = story["points"]
@@ -270,7 +341,8 @@ def build_payload(story, cfg, sprint_id=None):
     # Reporter suy theo product (sub_domain đã suy từ workstream) + keyword FS Hub per-story
     sub_dom = ws_vals.get("sub_domain") if ws_vals else d.get("sub_domain")
     rep, _ = resolve_reporter(cfg, sub_dom,
-                              f"{story.get('summary','')} {' '.join(story.get('desc_lines',[]))}")
+                              f"{story.get('summary','')} "
+                              f"{' '.join(e['text'] for e in story.get('desc_lines', []))}")
     if rep:
         fields["reporter"] = {"name": rep}
     return fields
@@ -325,7 +397,8 @@ def main():
     print(f"   {ws_line}\n")
     for s in stories:
         rep, rwarn = resolve_reporter(cfg, sub_dom,
-                                      f"{s.get('summary','')} {' '.join(s.get('desc_lines',[]))}")
+                                      f"{s.get('summary','')} "
+                                      f"{' '.join(e['text'] for e in s.get('desc_lines', []))}")
         print(f"  {s['us']} · {s['summary']}")
         print(f"       assignee={s['assignee']}  point={s['points']}  "
               f"reporter={rep}  subtasks={len(s['subtasks'])}"
