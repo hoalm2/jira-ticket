@@ -1,0 +1,248 @@
+{
+  "_comment": "KNOWLEDGE cố định cho tạo ticket PCFFS. PO maintain, KHÔNG sửa code.",
+  "defaults": {
+    "reporter": "hoalm2",
+    "project_key": "PCFFS",
+    "epic": "PCFFS-3753",
+    "_epic_note": "Epic Link nhận MÃ epic (PCFFS-xxxx), KHÔNG phải tên. Đổi sang epic đúng của Revamp Buy/Sell flow.",
+    "workstream": "Stock Trading",
+    "_workstream_note": "Chỉ cần workstream; product_domain + sub_domain tự suy từ workstream_mapping."
+  },
+  "issue_types": {
+    "story": "Story",
+    "subtask": "Sub-task"
+  },
+  "field_ids": {
+    "story_points": "customfield_10801",
+    "workstream": "customfield_12104",
+    "product_domain": "customfield_13710",
+    "sub_domain": "customfield_13711",
+    "epic_link": "customfield_10101",
+    "sprint": "customfield_10100",
+    "_sprint_note": "customfield_10100 (greenhopper). ID tra ĐỘNG qua Agile API lúc chạy (hướng B), khớp mã 26.xx.X. Xem sprint_cadence._board_id."
+  },
+  "dropdown_fields": [
+    "workstream",
+    "product_domain",
+    "sub_domain"
+  ],
+  "prd_field_conventions": {
+    "assignee_marker": "[assignee:",
+    "point_marker": "[point:",
+    "us_heading_regex": "US-?\\d+"
+  },
+  "sprint_cadence": {
+    "_rule": "next sprint = sprint có start_date nhỏ nhất trong các sprint thoả start_date >= today - 2 ngày. Auto-fill, không hỏi PO; PO check ở dry-run.",
+    "_grace_days": 2,
+    "sprints": [
+      {
+        "name": "Sprint 26.01.A",
+        "start": "2025-12-25"
+      },
+      {
+        "name": "Sprint 26.01.B",
+        "start": "2026-01-08"
+      },
+      {
+        "name": "Sprint 26.02.A",
+        "start": "2026-01-22"
+      },
+      {
+        "name": "Sprint 26.02.B",
+        "start": "2026-02-05"
+      },
+      {
+        "name": "Sprint 26.03.A",
+        "start": "2026-02-19"
+      },
+      {
+        "name": "Sprint 26.03.B",
+        "start": "2026-03-05"
+      },
+      {
+        "name": "Sprint 26.04.A",
+        "start": "2026-03-19"
+      },
+      {
+        "name": "Sprint 26.04.B",
+        "start": "2026-04-02"
+      },
+      {
+        "name": "Sprint 26.04.C",
+        "start": "2026-04-16"
+      },
+      {
+        "name": "Sprint 26.05.A",
+        "start": "2026-04-30"
+      },
+      {
+        "name": "Sprint 26.05.B",
+        "start": "2026-05-14"
+      },
+      {
+        "name": "Sprint 26.06.A",
+        "start": "2026-05-28"
+      },
+      {
+        "name": "Sprint 26.06.B",
+        "start": "2026-06-11"
+      },
+      {
+        "name": "Sprint 26.07.A",
+        "start": "2026-06-25"
+      },
+      {
+        "name": "Sprint 26.07.B",
+        "start": "2026-07-09"
+      },
+      {
+        "name": "Sprint 26.08.A",
+        "start": "2026-07-23"
+      },
+      {
+        "name": "Sprint 26.08.B",
+        "start": "2026-08-06"
+      },
+      {
+        "name": "Sprint 26.09.A",
+        "start": "2026-08-20"
+      },
+      {
+        "name": "Sprint 26.09.B",
+        "start": "2026-09-03"
+      },
+      {
+        "name": "Sprint 26.09.C",
+        "start": "2026-09-17"
+      },
+      {
+        "name": "Sprint 26.10.A",
+        "start": "2026-10-01"
+      },
+      {
+        "name": "Sprint 26.10.B",
+        "start": "2026-10-15"
+      },
+      {
+        "name": "Sprint 26.11.A",
+        "start": "2026-10-29"
+      },
+      {
+        "name": "Sprint 26.11.B",
+        "start": "2026-11-12"
+      },
+      {
+        "name": "Sprint 26.12.A",
+        "start": "2026-11-26"
+      },
+      {
+        "name": "Sprint 26.12.B",
+        "start": "2026-12-10"
+      }
+    ],
+    "_board_id": 1046,
+    "_board_note": "Board Agile chứa sprint Investment (originBoardId từ API). Sprint id tra động lúc chạy (hướng B), khớp theo mã 26.xx.X nên bỏ qua tiền tố tên."
+  },
+  "reporter_rules": {
+    "_note": "Reporter suy theo product (sub_domain). FS Hub xét keyword per-story (Hướng A).",
+    "_default_fallback": "hoalm2",
+    "by_product": {
+      "_match": "so khớp sub_domain (lowercase, chứa) với alias dưới",
+      "hoalm2": [
+        "stock trading",
+        "chứng khoán",
+        "fund certificate",
+        "fc",
+        "ccq",
+        "chứng chỉ quỹ",
+        "crypto"
+      ],
+      "thitb": [
+        "mmf",
+        "số dư sinh lời",
+        "sdsl"
+      ],
+      "trangdhq": [
+        "insurance",
+        "bảo hiểm",
+        "fixed deposit",
+        "fd",
+        "gửi tiết kiệm"
+      ]
+    },
+    "fs_hub": {
+      "_match": "khi sub_domain là FS Hub -> xét keyword trong summary+description mỗi story",
+      "_is_fshub_alias": [
+        "fs hub",
+        "financial services hub",
+        "financial service hub"
+      ],
+      "hoalm2": [
+        "fixed rule",
+        "portfolio",
+        "asset detail"
+      ],
+      "thitb": [
+        "data model"
+      ],
+      "_unclear": "hoalm2",
+      "_unclear_warn": true
+    }
+  },
+  "workstream_mapping": {
+    "_note": "Chọn workstream -> tự suy product_domain + sub_domain (như auto-fill trên web). 3 field đều dropdown, gửi {value:...}.",
+    "_usage": "PO chỉ cần cho biết workstream; product_domain + sub_domain suy từ bảng này.",
+    "rows": [
+      {
+        "workstream": "Fixed Deposit",
+        "product_domain": "Financial Service - Investment",
+        "sub_domain": "Fixed Deposit"
+      },
+      {
+        "workstream": "MMF",
+        "product_domain": "Financial Service - Investment",
+        "sub_domain": "MMF"
+      },
+      {
+        "workstream": "Stock Trading",
+        "product_domain": "Financial Service - Investment",
+        "sub_domain": "Stock Trading"
+      },
+      {
+        "workstream": "FS Hub - Investment",
+        "product_domain": "Financial Service - Investment",
+        "sub_domain": "FS Hub - Investment"
+      },
+      {
+        "workstream": "FS - Fund Certificate",
+        "product_domain": "Financial Service - Investment",
+        "sub_domain": "Fund Certificate"
+      },
+      {
+        "workstream": "Fixed Income",
+        "product_domain": "Financial Service - Investment",
+        "sub_domain": "Fixed Income"
+      },
+      {
+        "workstream": "Insurance",
+        "product_domain": "Financial Service - Investment",
+        "sub_domain": "Insurance"
+      },
+      {
+        "workstream": "Lending (PayLater, Installment)",
+        "product_domain": "Financial Service - Lending",
+        "sub_domain": "Paylater/Installment"
+      },
+      {
+        "workstream": "Cash Loan",
+        "product_domain": "Financial Service - Lending",
+        "sub_domain": "Cashloan"
+      },
+      {
+        "workstream": "FS Installment",
+        "product_domain": "Financial Service - Lending",
+        "sub_domain": "Paylater/Installment"
+      }
+    ]
+  }
+}

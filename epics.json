@@ -1,0 +1,966 @@
+{
+ "_note": "Epic đổi hằng sprint. LUÔN confirm PO trước khi dùng. Epic mới -> scan trùng label+summary rồi nhờ PO đặt tên.",
+ "_updated": "2026-07-30 (từ epics_list.md, 192 epic)",
+ "epics": [
+  {
+   "key": "PCFFS-4344",
+   "label": "[Stock] Stock Detail Info",
+   "summary": "[Stock] Stock Detail Info"
+  },
+  {
+   "key": "PCFFS-7504",
+   "label": "[Stock][ZPA] Migrate React Native app to Web",
+   "summary": "[Stock][ZPA] Migrate React Native app to Web"
+  },
+  {
+   "key": "PCFFS-16812",
+   "label": "[Stock] Withdraw to MMF",
+   "summary": "Withdraw to MMF flow"
+  },
+  {
+   "key": "PCFFS-17318",
+   "label": "[Stock] Promotion zone",
+   "summary": "Promotion zone includes all promotion for Stock"
+  },
+  {
+   "key": "PCFFS-17319",
+   "label": "[Stock] Notification performance",
+   "summary": "Notification about portfolio performance"
+  },
+  {
+   "key": "PCFFS-17324",
+   "label": "[Stock] Deposit with deeplink bank",
+   "summary": "Revamp deposit flow using deeplink bank"
+  },
+  {
+   "key": "PCFFS-17325",
+   "label": "[Stock] Conditional order",
+   "summary": "Conditional order"
+  },
+  {
+   "key": "PCFFS-17326",
+   "label": "[Stock] 1-time checkout",
+   "summary": "1-time checkout"
+  },
+  {
+   "key": "PCFFS-17327",
+   "label": "[Stock] Survey when withdraw from Stock",
+   "summary": "Survey when withdraw from Stock"
+  },
+  {
+   "key": "PCFFS-17359",
+   "label": "[Stock] Preserve for Minor UI/UX change",
+   "summary": "Preserve for Minor UI/UX change"
+  },
+  {
+   "key": "PCFFS-17193",
+   "label": "[Stock] Revamp Product Monitoring",
+   "summary": "Revamp Product Monitoring"
+  },
+  {
+   "key": "PCFFS-2260",
+   "label": "Stock landing page [Trading]",
+   "summary": "Landing page [Trading]"
+  },
+  {
+   "key": "PCFFS-2261",
+   "label": "Stock KYC [Trading]",
+   "summary": "KYC [Trading]"
+  },
+  {
+   "key": "PCFFS-2262",
+   "label": "Stock contract [Trading]",
+   "summary": "Contract [Trading]"
+  },
+  {
+   "key": "PCFFS-2420",
+   "label": "Set up project [Stock]",
+   "summary": "Project setup [Trading]"
+  },
+  {
+   "key": "PCFFS-4336",
+   "label": "[Stock] Stock Recommendation",
+   "summary": "[Stock] Stock Recommendation"
+  },
+  {
+   "key": "PCFFS-2522",
+   "label": "Deposit [Trading]",
+   "summary": "Deposit [Trading]"
+  },
+  {
+   "key": "PCFFS-2526",
+   "label": "Market info [Trading]",
+   "summary": "Market info [Trading]"
+  },
+  {
+   "key": "PCFFS-2530",
+   "label": "Database [Trading]",
+   "summary": "Database [Trading]"
+  },
+  {
+   "key": "PCFFS-2531",
+   "label": "Authentication [Trading]",
+   "summary": "Authentication [Trading]"
+  },
+  {
+   "key": "PCFFS-2541",
+   "label": "Buy/sell stock [Trading]",
+   "summary": "Buy/sell stock [Trading]"
+  },
+  {
+   "key": "PCFFS-2561",
+   "label": "Withdraw [Stock]",
+   "summary": "Withdraw [Trading]"
+  },
+  {
+   "key": "PCFFS-2562",
+   "label": "Order book [Stock]",
+   "summary": "Order book [Trading]"
+  },
+  {
+   "key": "PCFFS-2563",
+   "label": "Portfolio [Stock]",
+   "summary": "Portfolio [Trading]"
+  },
+  {
+   "key": "PCFFS-2564",
+   "label": "Home screen [Stock]",
+   "summary": "Home screen [Trading]"
+  },
+  {
+   "key": "PCFFS-2565",
+   "label": "Asset management [Stock]",
+   "summary": "Asset management [Trading]"
+  },
+  {
+   "key": "PCFFS-3748",
+   "label": "[Stock] Revamp Onboarding Flow",
+   "summary": "[Stock] Revamp Onboarding Flow"
+  },
+  {
+   "key": "PCFFS-3751",
+   "label": "[Stock] Revamp Deposit/ Withdraw flow",
+   "summary": "[Stock] Revamp Deposit/ Withdraw flow"
+  },
+  {
+   "key": "PCFFS-3753",
+   "label": "[Stock] Revamp Buy/ Sell flow",
+   "summary": "[Stock] Revamp Buy/ Sell flow"
+  },
+  {
+   "key": "PCFFS-3750",
+   "label": "[Stock] Reconciliation",
+   "summary": "[Stock] Reconciliation"
+  },
+  {
+   "key": "PCFFS-3673",
+   "label": "[Stock] Stock gifting",
+   "summary": "[Stock] Stock gifting"
+  },
+  {
+   "key": "PCFFS-3754",
+   "label": "[Stock] Product Information Hub",
+   "summary": "[Stock] Product Information Hub"
+  },
+  {
+   "key": "PCFFS-2566",
+   "label": "[Stock] Watchlist",
+   "summary": "[Stock] Watchlist"
+  },
+  {
+   "key": "PCFFS-2567",
+   "label": "Transaction history [Stock]",
+   "summary": "Transaction history [Trading]"
+  },
+  {
+   "key": "PCFFS-2586",
+   "label": "Tutorial [Stock]",
+   "summary": "Tutorial [Trading]"
+  },
+  {
+   "key": "PCFFS-2587",
+   "label": "Reconciliation [Trading]",
+   "summary": "Reconciliation [Trading]"
+  },
+  {
+   "key": "PCFFS-2793",
+   "label": "Withdraw [Trading]",
+   "summary": "Withdraw [Trading]"
+  },
+  {
+   "key": "PCFFS-2955",
+   "label": "Admin [Trading]",
+   "summary": "Admin [Trading]"
+  },
+  {
+   "key": "PCFFS-3745",
+   "label": "Watchlist",
+   "summary": "Watchlist"
+  },
+  {
+   "key": "PCFFS-3746",
+   "label": "[Stock] Revamp UI for MVP",
+   "summary": "[Stock] Revamp UI for MVP"
+  },
+  {
+   "key": "PCFFS-3747",
+   "label": "[Stock] Admin Tool",
+   "summary": "[Stock] Admin Tool"
+  },
+  {
+   "key": "PCFFS-3755",
+   "label": "[Stock] Education Content",
+   "summary": "[Stock] Education Content"
+  },
+  {
+   "key": "PCFFS-3756",
+   "label": "[Stock] Revamp Home",
+   "summary": "[Stock] Revamp Home"
+  },
+  {
+   "key": "PCFFS-15011",
+   "label": "[Stock] VNI forecast",
+   "summary": "VNI forecast"
+  },
+  {
+   "key": "PCFFS-3757",
+   "label": "[Stock] Market/ News/ Events",
+   "summary": "[Stock] Market/ News"
+  },
+  {
+   "key": "PCFFS-3868",
+   "label": "[Stock] Revamp UI \"Sổ lệnh\"",
+   "summary": "[Stock] Revamp UI \"Sổ lệnh\""
+  },
+  {
+   "key": "PCFFS-3869",
+   "label": "[Stock] Revamp UI chi tiết cổ phiếu",
+   "summary": "[Stock] Revamp UI chi tiết cổ phiếu"
+  },
+  {
+   "key": "PCFFS-3917",
+   "label": "[Stock] System Benchmarking",
+   "summary": "[Stock] System Benchmarking"
+  },
+  {
+   "key": "PCFFS-3918",
+   "label": "[Stock] Tracing and Controlling",
+   "summary": "[Stock] Tracing and Controlling"
+  },
+  {
+   "key": "PCFFS-3963",
+   "label": "[Stock] CS Support",
+   "summary": "[Stock] CS Support"
+  },
+  {
+   "key": "PCFFS-3970",
+   "label": "[Stock] Revamp Login",
+   "summary": "[Stock] Revamp Login"
+  },
+  {
+   "key": "PCFFS-3972",
+   "label": "[Stock] Revamp Asset Detail view",
+   "summary": "[Stock] Revamp Asset Detail view"
+  },
+  {
+   "key": "PCFFS-3984",
+   "label": "[Stock] Product Performance Dashboard",
+   "summary": "[Stock] Product Performance Dashboard"
+  },
+  {
+   "key": "PCFFS-4134",
+   "label": "[Stock] Transaction History",
+   "summary": "[Stock] Transaction History"
+  },
+  {
+   "key": "PCFFS-4233",
+   "label": "[Stock] Mega Campaign",
+   "summary": "[Stock] Mega Campaign/Loyalty"
+  },
+  {
+   "key": "PCFFS-4255",
+   "label": "[Stock] Home Reminder",
+   "summary": "[Stock] Home Reminder"
+  },
+  {
+   "key": "PCFFS-4673",
+   "label": "[Stock] Social& Community",
+   "summary": "[Stock] Social& Community"
+  },
+  {
+   "key": "PCFFS-4891",
+   "label": "[Stock] User guide",
+   "summary": "User guide hub for users to trade more easily"
+  },
+  {
+   "key": "PCFFS-4896",
+   "label": "[Stock] Revamp Search Page",
+   "summary": "[Stock] Revamp Search Page"
+  },
+  {
+   "key": "PCFFS-4897",
+   "label": "[Stock] Revamp Maintenance Flow",
+   "summary": "[Stock] Revamp Maintenance Flow"
+  },
+  {
+   "key": "PCFFS-4976",
+   "label": "[Stock] Referral",
+   "summary": "Referral scheme"
+  },
+  {
+   "key": "PCFFS-5027",
+   "label": "[Stock] Revamp Portfolio page",
+   "summary": "[Stock] Revamp Portfolio page"
+  },
+  {
+   "key": "PCFFS-5083",
+   "label": "[Stock Gift VNZ]",
+   "summary": "[Stock Gift VNZ]"
+  },
+  {
+   "key": "PCFFS-5137",
+   "label": "[Stock] Share profit",
+   "summary": "Khoe lãi/lỗ"
+  },
+  {
+   "key": "PCFFS-5267",
+   "label": "[Stock] Data sharing",
+   "summary": "Feature to enable data sharing"
+  },
+  {
+   "key": "PCFFS-5339",
+   "label": "Execute Fixing ZaloPay Information Security",
+   "summary": "[PCF-FS] Execute Fixing ZaloPay Information Security"
+  },
+  {
+   "key": "PCFFS-5487",
+   "label": "[Stock] Advanced filter",
+   "summary": "Advanced filter"
+  },
+  {
+   "key": "PCFFS-5622",
+   "label": "[Stock] KRX",
+   "summary": "Integration with KRX"
+  },
+  {
+   "key": "PCFFS-5696",
+   "label": "[Stock] News & events",
+   "summary": "News & events hub"
+  },
+  {
+   "key": "PCFFS-5812",
+   "label": "[Stock] Virtual account",
+   "summary": "Virtual account"
+  },
+  {
+   "key": "PCFFS-6010",
+   "label": "[Stock] Notification scheme",
+   "summary": "Functional and Non-functional notification"
+  },
+  {
+   "key": "PCFFS-6164",
+   "label": "[Stock] Right Event",
+   "summary": "[Stock] Right event information"
+  },
+  {
+   "key": "PCFFS-6165",
+   "label": "[Stock] Headline",
+   "summary": "Headline feature"
+  },
+  {
+   "key": "PCFFS-6184",
+   "label": "[Stock] Home Shortcut",
+   "summary": "[Stock] Home Shortcut"
+  },
+  {
+   "key": "PCFFS-6572",
+   "label": "[Stock] Loyalty scheme",
+   "summary": "[Stock] Loyalty scheme"
+  },
+  {
+   "key": "PCFFS-7119",
+   "label": "[Stock] OTP ZNS",
+   "summary": "[Stock] OTP ZNS for DNSE"
+  },
+  {
+   "key": "PCFFS-7164",
+   "label": "[FS Hub] Investment tab",
+   "summary": "Tab where listing all investment products"
+  },
+  {
+   "key": "PCFFS-7165",
+   "label": "[FS Hub] Technical preparation",
+   "summary": "Technical user stories to set the base for project"
+  },
+  {
+   "key": "PCFFS-7609",
+   "label": "[Stock] Stock gift auto",
+   "summary": "Flow receive stocks automatically"
+  },
+  {
+   "key": "PCFFS-7670",
+   "label": "[Stock] Margin",
+   "summary": "[Stock] Margin feature"
+  },
+  {
+   "key": "PCFFS-7680",
+   "label": "[Stock] CRM, Promotion, NBA",
+   "summary": "Cross-team project with CRM, Promotion, NBA"
+  },
+  {
+   "key": "PCFFS-8213",
+   "label": "[Q3][Stock] Margin",
+   "summary": "[Q3][Stock] Margin"
+  },
+  {
+   "key": "PCFFS-8214",
+   "label": "[Stock] Withdraw to Bank",
+   "summary": "[Stock] Withdraw to Bank"
+  },
+  {
+   "key": "PCFFS-8217",
+   "label": "[Q3][FS Hub] Improve UI & product suggestion",
+   "summary": "[FS Hub] Improve UI & product suggestion"
+  },
+  {
+   "key": "PCFFS-8666",
+   "label": "[FC] Onboarding Flow",
+   "summary": "[FC] Onboarding Flow"
+  },
+  {
+   "key": "PCFFS-9126",
+   "label": "[FSHub] Balance Section Enhancement",
+   "summary": "[FSHub] Balance Section Enhancement"
+  },
+  {
+   "key": "PCFFS-9127",
+   "label": "[FSHub] Installment Product",
+   "summary": "[FSHub] Installment Product"
+  },
+  {
+   "key": "PCFFS-9129",
+   "label": "[FSHub] Show Paylater Available Limit",
+   "summary": "[FSHub] Show Paylater Available Limit"
+  },
+  {
+   "key": "PCFFS-9134",
+   "label": "[FSHub] Cash Loan Product",
+   "summary": "[FSHub] Cash Loan Product"
+  },
+  {
+   "key": "PCFFS-9135",
+   "label": "[FSHub] CCQ Product",
+   "summary": "[FSHub] CCQ Product"
+  },
+  {
+   "key": "PCFFS-9153",
+   "label": "[Stock] Update CMND",
+   "summary": "Update CMND"
+  },
+  {
+   "key": "PCFFS-9512",
+   "label": "[FC] Registration Address info",
+   "summary": "[FC] Registration Address info"
+  },
+  {
+   "key": "PCFFS-9513",
+   "label": "[FC] New Registration Edge Case",
+   "summary": "[FC] New Registration Edge Case"
+  },
+  {
+   "key": "PCFFS-9514",
+   "label": "[FE] Cache Registration Info",
+   "summary": "[FE] Cache Registration Info"
+  },
+  {
+   "key": "PCFFS-9515",
+   "label": "[FC] Binding with Fmarket Account",
+   "summary": "[FC] Binding with Fmarket Account"
+  },
+  {
+   "key": "PCFFS-9516",
+   "label": "[FC] Full Registration Flow",
+   "summary": "[FC] Full Registration Flow"
+  },
+  {
+   "key": "PCFFS-9585",
+   "label": "[FC] Show User info by ID Type",
+   "summary": "[FC] Show User info by ID Type"
+  },
+  {
+   "key": "PCFFS-9680",
+   "label": "[FC] Launch FC & monitor & analytics",
+   "summary": "[Q4][FC] Launch FC (Onboarding - New/Binding, Reconciliation)"
+  },
+  {
+   "key": "PCFFS-9687",
+   "label": "[Stock] Margin - Launch & Monitor",
+   "summary": "[Stock] Margin - Launch & Monitor"
+  },
+  {
+   "key": "PCFFS-9688",
+   "label": "[Stock] Enhance VA",
+   "summary": "[Stock] Enhance VA"
+  },
+  {
+   "key": "PCFFS-9689",
+   "label": "[Stock] Enhance ZNS OTP",
+   "summary": "[Stock] Enhance ZNS OTP"
+  },
+  {
+   "key": "PCFFS-9690",
+   "label": "[Stock] Activation scheme journey",
+   "summary": "[Stock] Activation scheme journey"
+  },
+  {
+   "key": "PCFFS-9691",
+   "label": "[Stock] P2P Stock Transfer",
+   "summary": "[Stock] P2P Stock Transfer"
+  },
+  {
+   "key": "PCFFS-9694",
+   "label": "[FSHub] Package Registration",
+   "summary": "[FSHub] Package Registration"
+  },
+  {
+   "key": "PCFFS-9695",
+   "label": "[FS Hub] Asset / Liability Management",
+   "summary": "[FS Hub] Asset / Liability Management"
+  },
+  {
+   "key": "PCFFS-9746",
+   "label": "[FC] Reconciliation & CS Support",
+   "summary": "[FC] Reconciliation & CS Support"
+  },
+  {
+   "key": "PCFFS-9875",
+   "label": "[FC] In-app Entry Point",
+   "summary": "[FC] In-app Entry Point"
+  },
+  {
+   "key": "PCFFS-10193",
+   "label": "[FSHub] Badge on Shortcut Section",
+   "summary": "[FSHub] Badge on Shortcut Section"
+  },
+  {
+   "key": "PCFFS-10194",
+   "label": "[FC] Onboarding Event Tracking",
+   "summary": "[FC] Onboarding Event Tracking"
+  },
+  {
+   "key": "PCFFS-10351",
+   "label": "[FS Hub] Promotion section",
+   "summary": "Promotion section"
+  },
+  {
+   "key": "PCFFS-10377",
+   "label": "[FS Hub] Technical enhancement",
+   "summary": "Enhance tech solution"
+  },
+  {
+   "key": "PCFFS-10590",
+   "label": "[FC] New Landing Page",
+   "summary": "[FC] New Landing Page"
+  },
+  {
+   "key": "PCFFS-10591",
+   "label": "[FC] Maintenance Flow",
+   "summary": "[FC] Maintenance Flow"
+  },
+  {
+   "key": "PCFFS-10593",
+   "label": "[FC] Splash Screen",
+   "summary": "[FC] Splash Screen"
+  },
+  {
+   "key": "PCFFS-10645",
+   "label": "[Stock] Loan extension",
+   "summary": "Loan extension"
+  },
+  {
+   "key": "PCFFS-10848",
+   "label": "[Stock] P2P Stock Gift",
+   "summary": "[Stock] P2P Stock Gift"
+  },
+  {
+   "key": "PCFFS-10919",
+   "label": "[FC] Trading Notification",
+   "summary": "[FC] Trading Notification"
+  },
+  {
+   "key": "PCFFS-10920",
+   "label": "[FC] System Monitoring",
+   "summary": "[FC] System Monitoring"
+  },
+  {
+   "key": "PCFFS-10921",
+   "label": "[FC] Trading Webview",
+   "summary": "[FC] Trading Webview"
+  },
+  {
+   "key": "PCFFS-11003",
+   "label": "[FSHub] Lending tab",
+   "summary": "[FSHub] Lending tab on FS Hub"
+  },
+  {
+   "key": "PCFFS-11182",
+   "label": "[FSHub] Config badge",
+   "summary": "Config badge"
+  },
+  {
+   "key": "PCFFS-11218",
+   "label": "[FSHub] FS CASA Account Page",
+   "summary": "[FSHub] FS CASA Account Page"
+  },
+  {
+   "key": "PCFFS-11705",
+   "label": "[PO-FH] Toro Project",
+   "summary": "[PO-FH] Toro Project"
+  },
+  {
+   "key": "PCFFS-11715",
+   "label": "[PO-Stock] Margin",
+   "summary": "[PO-Stock] Margin"
+  },
+  {
+   "key": "PCFFS-11716",
+   "label": "[PO-Stock] Promotion Capability",
+   "summary": "[PO-Stock] Promotion Capability"
+  },
+  {
+   "key": "PCFFS-11717",
+   "label": "[PO-Stock] Comply Regulation",
+   "summary": "[PO-Stock] Comply Regulation"
+  },
+  {
+   "key": "PCFFS-11720",
+   "label": "[PO-Stock] Enhance UX",
+   "summary": "[PO-Stock] Enhance UX"
+  },
+  {
+   "key": "PCFFS-11722",
+   "label": "[PO-Stock] Trading News Content",
+   "summary": "[PO-Stock] Trading News Content"
+  },
+  {
+   "key": "PCFFS-11723",
+   "label": "[PO-Stock] Withdraw to MMF",
+   "summary": "[PO-Stock] Withdraw to MMF"
+  },
+  {
+   "key": "PCFFS-12051",
+   "label": "[Stock] Enhance activation flow",
+   "summary": "[Stock] Enhance activation flow"
+  },
+  {
+   "key": "PCFFS-12052",
+   "label": "[Stock] Enhance news hub",
+   "summary": "[Stock] Enhance news hub to better serve advanced needs"
+  },
+  {
+   "key": "PCFFS-12073",
+   "label": "[Investment] Technical Handbook",
+   "summary": "[Investment] Technical Handbook"
+  },
+  {
+   "key": "PCFFS-12080",
+   "label": "Reform eKYC routing (Toro)",
+   "summary": "[FS Hub] Reform eKYC routing (Toro)"
+  },
+  {
+   "key": "PCFFS-12081",
+   "label": "Multi FS Product Registration",
+   "summary": "[FS Hub] Multi FS Product Registration"
+  },
+  {
+   "key": "PCFFS-12083",
+   "label": "Total Balance Self Configuration",
+   "summary": "[FS Hub] Total Balance Self Configuration"
+  },
+  {
+   "key": "PCFFS-12088",
+   "label": "Integrate with Loyalty & Promotion",
+   "summary": "[FC] Integrate with Loyalty & Promotion"
+  },
+  {
+   "key": "PCFFS-12089",
+   "label": "[FC] Bank Account Recommendation",
+   "summary": "[FC] Bank Account Recommendation"
+  },
+  {
+   "key": "PCFFS-12090",
+   "label": "[FC] User Journey's based Noti",
+   "summary": "[FC] User Journey's based Noti"
+  },
+  {
+   "key": "PCFFS-12311",
+   "label": "[FSHub] Toro project",
+   "summary": "[FSHub] Toro project"
+  },
+  {
+   "key": "PCFFS-12312",
+   "label": "[FC] Login",
+   "summary": "[FC] Login"
+  },
+  {
+   "key": "PCFFS-12431",
+   "label": "[FS Hub] Event tracking",
+   "summary": "Event tracking for FS Hub"
+  },
+  {
+   "key": "PCFFS-12559",
+   "label": "[FSHub] Dev Ops",
+   "summary": "[FSHub] Dev Ops"
+  },
+  {
+   "key": "PCFFS-12910",
+   "label": "[Stock] Simplize Recommendation",
+   "summary": "Recommendation from Simplize"
+  },
+  {
+   "key": "PCFFS-12928",
+   "label": "[Investment] Optimize Performance Application",
+   "summary": "Optimize Performance Application"
+  },
+  {
+   "key": "PCFFS-13159",
+   "label": "[FSHub] Promote Prio SDSL",
+   "summary": "[FSHub][FE] Promote Prio SDSL"
+  },
+  {
+   "key": "PCFFS-13207",
+   "label": "[Stock] P2P Stock Gift",
+   "summary": "[Stock] Migrate ReactJS"
+  },
+  {
+   "key": "PCFFS-13415",
+   "label": "[Stock] Trading Information",
+   "summary": "[Stock] Trading Information"
+  },
+  {
+   "key": "PCFFS-13416",
+   "label": "[Stock] Enhance Watch List",
+   "summary": "[Stock] Enhance Watch List"
+  },
+  {
+   "key": "PCFFS-13417",
+   "label": "[Stock] Margin Adoption",
+   "summary": "[Stock] Margin Adoption"
+  },
+  {
+   "key": "PCFFS-13418",
+   "label": "[Stock] Margin Multiple Fee Scheme",
+   "summary": "[Stock] Margin Multiple Fee Scheme"
+  },
+  {
+   "key": "PCFFS-13419",
+   "label": "[Stock] Adapt with KRX System",
+   "summary": "[Stock] Adapt with KRX System"
+  },
+  {
+   "key": "PCFFS-13420",
+   "label": "[Stock] Allow user to open Stock account with NFC only",
+   "summary": "[Stock] Allow user to open Stock account with NFC only"
+  },
+  {
+   "key": "PCFFS-13426",
+   "label": "[FC] Credit Score",
+   "summary": "[FC] Credit Score"
+  },
+  {
+   "key": "PCFFS-13427",
+   "label": "[FC] Remind user make payment/ confirm payment for Buy Order",
+   "summary": "[FC] Remind user make payment/ confirm payment for Buy Order"
+  },
+  {
+   "key": "PCFFS-13428",
+   "label": "[FC] Optimize Onboarding Flow",
+   "summary": "[FC] Optimize Onboarding Flow"
+  },
+  {
+   "key": "PCFFS-13429",
+   "label": "[FC] Optimize Buy Certificate Flow",
+   "summary": "[FC] Optimize Buy Certificate Flow"
+  },
+  {
+   "key": "PCFFS-13431",
+   "label": "[FS Hub] Cross sale between SDSL and other Investment Product",
+   "summary": "[FS Hub] Cross sale between SDSL and other Investment Product"
+  },
+  {
+   "key": "PCFFS-13658",
+   "label": "[FSHub] Show Product Status & Asset",
+   "summary": "[FSHub] Show Product Status & Asset"
+  },
+  {
+   "key": "PCFFS-13932",
+   "label": "[FC] Promotion hub",
+   "summary": "Promotion hub for FC"
+  },
+  {
+   "key": "PCFFS-14092",
+   "label": "[Stock] Update email",
+   "summary": "Add email when registering, updating information"
+  },
+  {
+   "key": "PCFFS-14570",
+   "label": "[Stock] Simplize filter stock",
+   "summary": "Simplize filter stock"
+  },
+  {
+   "key": "PCFFS-14713",
+   "label": "[Stock] Segment CRM",
+   "summary": "Show features by segment CRM"
+  },
+  {
+   "key": "PCFFS-14789",
+   "label": "[FC] Optimize webview",
+   "summary": "Optimize Fmarket webview"
+  },
+  {
+   "key": "PCFFS-15391",
+   "label": "[Stock] Daily Gamification",
+   "summary": "[Stock] Daily Gamification"
+  },
+  {
+   "key": "PCFFS-15392",
+   "label": "[Stock] Embed new use cases for Margin",
+   "summary": "[Stock] Embed new use cases for Margin"
+  },
+  {
+   "key": "PCFFS-15393",
+   "label": "[Stock] Advance Trading: Launch new feature to serve high-volume",
+   "summary": "[Stock] Advance Trading: Launch new feature to serve high-volume"
+  },
+  {
+   "key": "PCFFS-15394",
+   "label": "[Stock] Leader/ Group Trading",
+   "summary": "[Stock] Leader/ Group Trading"
+  },
+  {
+   "key": "PCFFS-15395",
+   "label": "[FS Hub] Build Saving & Investment Habit",
+   "summary": "[FS Hub] Build Saving & Investment Habit"
+  },
+  {
+   "key": "PCFFS-15396",
+   "label": "[FSHub] Provide user a place to browse Insurance & Other financial product",
+   "summary": "[FSHub] Provide user a place to browse Insurance & Other financial product"
+  },
+  {
+   "key": "PCFFS-16030",
+   "label": "[FS Hub] Handle temp fund",
+   "summary": "[FS Hub] Handle temp fund"
+  },
+  {
+   "key": "PCFFS-16204",
+   "label": "[Stock] Cover loss",
+   "summary": "Cover loss for 1st order"
+  },
+  {
+   "key": "PCFFS-16646",
+   "label": "[FSHub] FS News",
+   "summary": "[FSHub] FS News"
+  },
+  {
+   "key": "PCFFS-16685",
+   "label": "[FSHub] Adapt with new Home",
+   "summary": "[FSHub] Adapt with new Home"
+  },
+  {
+   "key": "PCFFS-17335",
+   "label": "Adapt with new Home",
+   "summary": "Adapt with new Home"
+  },
+  {
+   "key": "PCFFS-17336",
+   "label": "Adapt with new Home",
+   "summary": "FS Market Place"
+  },
+  {
+   "key": "PCFFS-17337",
+   "label": "Adapt with new Home",
+   "summary": "Investment Loyalty"
+  },
+  {
+   "key": "PCFFS-17338",
+   "label": "Adapt with new Home",
+   "summary": "Offer Insurance Product and Others"
+  },
+  {
+   "key": "PCFFS-17626",
+   "label": "[Stock] Promotion zone",
+   "summary": "Zone to synthesize all promotions"
+  },
+  {
+   "key": "PCFFS-18104",
+   "label": "[FSHub] Package Registration Enhancement",
+   "summary": "[FSHub] Package Registration Enhancement"
+  },
+  {
+   "key": "PCFFS-18121",
+   "label": "[FSHub] Improve 1st load",
+   "summary": "[FSHub] Improve 1st load"
+  },
+  {
+   "key": "PCFFS-18143",
+   "label": "[Stock] AI summary",
+   "summary": "Utilize AI to summarize content for Stock"
+  },
+  {
+   "key": "PCFFS-18334",
+   "label": "[FSHub] Cyber Insurance Cross-sell",
+   "summary": "[FSHub] Cyber Insurance Cross-sell"
+  },
+  {
+   "key": "PCFFS-19063",
+   "label": "[FSHub][FE] Modify Recommendation Rule",
+   "summary": "[FSHub][FE] Modify Recommendation Rule"
+  },
+  {
+   "key": "PCFFS-19383",
+   "label": "[Stock] Add loyalty theme",
+   "summary": "Habit loop to encourage users adopt Stock"
+  },
+  {
+   "key": "PCFFS-19562",
+   "label": "[Stock] Comply AML & FATCA",
+   "summary": "Update registration flow to comply with AML & FATCA rule"
+  },
+  {
+   "key": "PCFFS-19643",
+   "label": "[FSHUB] Develop Nudge - Recommendation scheme",
+   "summary": "[FSHUB] Develop Nudge - Recommendation scheme"
+  },
+  {
+   "key": "PCFFS-20039",
+   "label": "[Stock] BE enhancement",
+   "summary": "Enhancement BE"
+  },
+  {
+   "key": "PCFFS-20455",
+   "label": "[FC] Support nudge for FS Hub",
+   "summary": "Support nudge for FS Hub"
+  },
+  {
+   "key": "PCFFS-20456",
+   "label": "[Stock] Support nudge for FS Hub",
+   "summary": "Support nudge for FS Hub"
+  },
+  {
+   "key": "PCFFS-20634",
+   "label": "[FS Hub] Support Stock comply FATCA & AML",
+   "summary": "Support Stock comply FATCA & AML"
+  },
+  {
+   "key": "PCFFS-21716",
+   "label": "[FSHub] Asset detail screen",
+   "summary": "Asset detail screen"
+  },
+  {
+   "key": "PCFFS-21780",
+   "label": "[FC] Asset",
+   "summary": "[FC] Asset"
+  }
+ ]
+}

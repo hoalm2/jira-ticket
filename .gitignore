@@ -1,0 +1,27 @@
+# === TUYỆT ĐỐI KHÔNG commit secret ===
+.env
+*.token
+*token*.txt
+secrets*
+credentials*
+
+# File PRD/source cá nhân (không thuộc skill)
+*.prd.html
+uploads/
+tickets.json
+us_ticket_map.json
+created_mapping.jsonl
+
+# Python rác
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# OS rác
+.DS_Store
+Thumbs.db
+
+# Backup Confluence (nếu có bước sửa trang)
+*_backup_*.xml
