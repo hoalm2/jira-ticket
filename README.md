@@ -5,14 +5,25 @@ epic/sprint/reporter/workstream theo knowledge có sẵn, có bước duyệt tr
 
 > **Đọc file này từ đầu đến cuối trước khi dùng.** Làm đúng 3 phần: CÀI → SETUP → DÙNG.
 
+**Dùng với công cụ nào cũng được:** skill chỉ gồm 1 file hướng dẫn (`SKILL.md`) + vài
+script Python thuần — không khoá riêng vào Claude Code. Cài đúng Phần 1 + 2 là dùng
+được với Claude Code, Antigravity, Codex, hay bất kỳ agent nào khác hỗ trợ cơ chế
+đọc skill/slash-command; hoặc **không cần AI agent nào cả** — chạy tay script Python
+qua terminal (xem "Chạy tay" ở Phần 3). Phần 1 có 2 nhánh cài tương ứng — chọn đúng
+nhánh theo công cụ bạn dùng.
+
 ---
 
-## PHẦN 1 — CÀI (đưa skill vào thư mục Claude skills)
+## PHẦN 1 — CÀI
+
+Chọn đúng nhánh theo công cụ bạn dùng.
+
+### NHÁNH A — Dùng Claude Code
 
 Skill phải nằm ở `~/.claude/skills/jira-ticket-creator/` thì Claude Code mới nhận.
 Claude Code CHỈ quét thư mục này — **không** quét Downloads hay chỗ khác. Chọn 1 cách:
 
-### Cách A — Clone git (khuyên dùng: `git pull` cập nhật được về sau)
+**Cách A1 — Clone git (khuyên dùng: `git pull` cập nhật được về sau)**
 ```bash
 mkdir -p ~/.claude/skills
 cd ~/.claude/skills
@@ -20,7 +31,7 @@ git clone <URL_REPO_NÀY> jira-ticket-creator
 chmod +x ~/.claude/skills/jira-ticket-creator/scripts/*.py
 ```
 
-### Cách B — Tải file zip (nếu chưa dùng git)
+**Cách A2 — Tải file zip (nếu chưa dùng git)**
 Tải `jira-ticket-creator.zip` về máy (thường vào `~/Downloads`). File tải về nằm ở
 Downloads là **SAI chỗ** — phải chuyển sang skills folder:
 ```bash
@@ -33,7 +44,7 @@ mv ~/Downloads/jira-ticket-creator ~/.claude/skills/
 chmod +x ~/.claude/skills/jira-ticket-creator/scripts/*.py
 ```
 
-### KIỂM TRA đúng chỗ (bước này QUAN TRỌNG — hay sai nhất)
+**KIỂM TRA đúng chỗ (bước này QUAN TRỌNG — hay sai nhất)**
 ```bash
 ls ~/.claude/skills/jira-ticket-creator/SKILL.md
 ```
@@ -47,13 +58,25 @@ Claude Code KHÔNG nhận. Sửa:
 mv ~/.claude/skills/jira-ticket-creator/jira-ticket-creator/* ~/.claude/skills/jira-ticket-creator/
 ```
 
-### Xác nhận Claude nhận skill
-Mở **session Claude Code mới**, gõ `/skills`. Thấy `jira-ticket-creator` là OK.
-Không thấy → kiểm lại `SKILL.md` đúng độ sâu như trên, rồi restart Claude Code.
+**Xác nhận Claude nhận skill:** mở **session Claude Code mới**, gõ `/skills`. Thấy
+`jira-ticket-creator` là OK. Không thấy → kiểm lại `SKILL.md` đúng độ sâu như trên,
+rồi restart Claude Code.
 
 > **Cá nhân vs team:** đặt ở `~/.claude/skills/` = dùng cho MỌI project của riêng bạn
 > (khuyên dùng). Nếu muốn skill đi theo 1 repo team cụ thể, đặt ở `.claude/skills/` (không
 > có `~`) bên trong repo đó và commit — cả team clone repo là có skill.
+
+### NHÁNH B — Dùng Antigravity/Codex/agent khác, hoặc chỉ terminal thuần
+
+Không có ràng buộc thư mục — clone/tải vào bất kỳ chỗ nào bạn muốn làm việc:
+```bash
+git clone <URL_REPO_NÀY> jira-ticket-creator
+chmod +x jira-ticket-creator/scripts/*.py
+```
+Nếu công cụ bạn dùng có cơ chế đọc skill/instruction file riêng (vd Antigravity,
+Codex), trỏ nó vào thư mục vừa clone — nó sẽ đọc `SKILL.md` và tự biết luồng chạy,
+tương tự cách Claude Code đọc `/skills`. Nếu không dùng agent nào, bỏ qua — chạy tay
+theo Phần 3 ("Chạy tay").
 
 ---
 
@@ -84,7 +107,8 @@ cd ~/.claude/skills/jira-ticket-creator
 python3 -c "import sys;print('Python',sys.version.split()[0])"
 [ -n "$JIRA_TOKEN" ] && echo "✓ JIRA_TOKEN ok" || echo "✗ thiếu JIRA_TOKEN"
 ```
-Hoặc để Claude tự chạy preflight khi bạn gọi skill — nó sẽ báo thiếu gì và hướng dẫn.
+Hoặc để agent bạn đang dùng (Claude Code/Antigravity/Codex…) tự chạy preflight khi
+gọi skill, nếu nó đọc được `SKILL.md` — nó sẽ báo thiếu gì và hướng dẫn.
 
 ### 2.4 (Lần đầu / khi Jira đổi field) — kiểm field ID
 Field ID của project đã điền sẵn trong `jira_config.json`. Nếu Jira đổi cấu hình field,
@@ -97,10 +121,11 @@ python3 scripts/prd_to_jira.py --inspect PCFFS-20144 --insecure
 
 ## PHẦN 3 — DÙNG (mỗi lần tạo ticket)
 
-Cách đơn giản nhất: mở Claude Code trong thư mục làm việc, nói tự nhiên, ví dụ:
+Cách đơn giản nhất: mở agent bạn đang dùng (Claude Code, Antigravity, Codex…) trong
+thư mục skill, nói tự nhiên, ví dụ:
 > "Tạo Jira ticket từ PRD này" (kèm file PRD hoặc link)
 
-Claude sẽ tự chạy skill theo luồng: preflight → confirm epic → kiểm schema → **dry-run
+Agent sẽ tự chạy skill theo luồng: preflight → confirm epic → kiểm schema → **dry-run
 cho bạn duyệt** → tạo thật. Bạn chỉ cần cung cấp:
 - **Source**: 1 PRD (file `.html`/`.md`) hoặc link.
 - **Epic**: tên epic (Claude sẽ confirm/scan trùng).
