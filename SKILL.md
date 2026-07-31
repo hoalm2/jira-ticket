@@ -118,10 +118,35 @@ PO cung cấp source theo bất kỳ cách nào:
 python3 scripts/check_schema.py --show-schema
 ```
 
-Chọn/chạy parser hợp với source để ra **schema JSON trung gian** (list story, đúng
-các field ở bảng trên). Hiện có:
-- PRD → dùng `prd_to_jira.py` (parse sẵn, xuất story theo schema).
-- FigJam / source khác → parser riêng (roadmap; đổ ra cùng schema).
+### 2.1 — Quét cấu trúc source & ĐỀ XUẤT cách break + style description (BẮT BUỘC, trước khi chạy parser)
+
+**Không mặc định source theo style User Story rồi chạy thẳng parser cố định** — nhiều
+PRD/FigJam chia theo Use Case, theo Feature/Kịch bản, hay style khác hẳn US-xx. Chạy
+nhầm parser cố định vào source không đúng style vừa tốn token vừa ra ticket sai cấu
+trúc (hoặc rỗng, vd `prd_to_jira.py` chỉ nhận heading `US-xx`).
+
+Trước khi chọn/chạy parser, **đọc lướt qua source** (không chạy script) để nhận diện
+cấu trúc thật: heading theo `US-xx`? theo "Use case N"/"Kịch bản N"? theo
+Feature/Epic? hay khác? Từ đó **ĐỀ XUẤT — không hỏi suông** — 2 điều cho PO, kèm lý
+do ngắn gọn dựa trên chính source:
+
+1. **Ticket break theo gì** — vd "source chia theo 5 Use case rõ ràng → đề xuất 1
+   use case = 1 story" hoặc "source có heading US-01, US-02 → giữ nguyên 1 US = 1
+   story".
+2. **Description đi theo style gì** — vd "mỗi use case có nhiều bước Given/When/Then
+   con → đề xuất giữ cấu trúc phân cấp (case-heading + GWT lùi cấp, xem
+   `jira_config.json > description_format`)" hoặc "source chỉ có đoạn tường thuật +
+   vài gạch đầu dòng → đề xuất style User story/Acceptance criteria phẳng như hiện
+   tại".
+
+**PO xác nhận hoặc chỉnh lại đề xuất trước khi đi tiếp.** Nếu PO chốt cách break/style
+khác với parser sẵn có (`prd_to_jira.py` hiện chỉ hiểu US-xx) → báo rõ cần parser
+mới/điều chỉnh thủ công, **đừng cố ép chạy parser cũ rồi vá lỗi**.
+
+Chọn/chạy parser hợp với cách break đã chốt để ra **schema JSON trung gian** (list
+story, đúng các field ở bảng trên). Hiện có:
+- PRD theo US-xx → dùng `prd_to_jira.py` (parse sẵn, xuất story theo schema).
+- FigJam / theo Use Case / source khác → parser riêng (roadmap; đổ ra cùng schema).
 
 **Rồi kiểm schema — cửa chặn bắt buộc:**
 ```bash
