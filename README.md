@@ -124,8 +124,7 @@ sub-task nằm dưới story cha.
 ---
 
 ## CẬP NHẬT SKILL (khi có bản mới)
-
-Knowledge (epic, cadence) đổi theo sprint. Lấy bản mới nhất:
+Mỗi khi Git được cập nhật, chạy lệnh trong IDE để lấy bản mới nhất:
 ```bash
 cd ~/.claude/skills/jira-ticket-creator
 git pull
